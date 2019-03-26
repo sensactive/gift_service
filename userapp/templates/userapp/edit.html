@@ -1,0 +1,19 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+{% block content %}
+    <form class="form-horizontal col-6 userInfo text-center" action="{% url 'auth:edit' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ edit_form.as_p }}
+        {{ profile_form.as_p }}
+        <div class="user_avatar col-6 userInfo"><img src="/media/{{ user.avatar }}" alt="No Avatar"></div>
+        <button class="btn btn-round form-control btn-default col-7">сохранить</button>
+    </form>
+    <div class="text-center">
+        <button class="btn btn-round form-control col-3 btn-default">
+            <a href="{% url 'mainapp:main' %}" class="btnToOrders">
+                на главную
+            </a>
+        </button>
+    </div>
+
+{% endblock %}

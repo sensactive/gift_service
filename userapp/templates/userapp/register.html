@@ -1,0 +1,10 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+{% block content %}
+    <form class="form-horizontal col-6 userInfo" action="{% url 'authapp:register' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ register_form.as_p }}
+        <br>
+        <button class="form-control">Зарегистрироваться</button>
+    </form>
+{% endblock %}
